@@ -36,6 +36,13 @@ function get_zone_id_from_record_id($rid) {
 	return $zid;
 }
 
+function get_domain_ip($domain){
+	global $db;
+	$query = "select content from records where name='$domain' and type='A'";
+	$ip = $db->queryOne($query);
+	return $ip;
+}
+
 function count_zone_records($zone_id) {
 	global $db;
 	$sqlq = "SELECT COUNT(id) FROM records WHERE domain_id = ".$db->quote($zone_id, 'integer');

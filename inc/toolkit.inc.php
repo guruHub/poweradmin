@@ -149,8 +149,12 @@ require_once("record.inc.php");
 require_once("templates.inc.php");
 
 $db = dbConnect();
-doAuthenticate();
-
+/*
+* to support api like using.
+*/
+if(!USING_API){
+	doAuthenticate();
+}
 
 /*************
  * Functions *
