@@ -86,3 +86,13 @@ function gh_create_subdomain($domain, $subdomain, $content=null){
 	add_record($zoneid, $name, $type, $content, $ttl, $prio);
 	return $zoneid;
 }
+
+function gh_set_cpanel_mx($domain){
+	$zoneid = get_zone_id_from_name($domain);
+	$type = 'MX';
+	$content = "mx.registrar.com.uy"
+	$ttl = 86400;
+	$prio = 0;
+	add_record($zoneid, "", $type, $content, $ttl, $prio);
+	return $zoneid;
+}
