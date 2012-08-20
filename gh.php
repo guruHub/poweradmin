@@ -1,7 +1,7 @@
 <?php
-define('USING_API', true);
 error_reporting(E_ALL);
-
+global $using_api;
+$using_api = true;
 require_once("inc/toolkit.inc.php");
 
 // POWERADMIN API ABSTRACTION
@@ -90,7 +90,7 @@ function gh_create_subdomain($domain, $subdomain, $content=null){
 function gh_set_cpanel_mx($domain){
 	$zoneid = get_zone_id_from_name($domain);
 	$type = 'MX';
-	$content = "mx.registrar.com.uy"
+	$content = "mx.registrar.com.uy";
 	$ttl = 86400;
 	$prio = 0;
 	add_record($zoneid, "", $type, $content, $ttl, $prio);

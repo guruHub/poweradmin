@@ -1,5 +1,4 @@
 <?php
-
 // TODO: display elapsed time and memory consumption,
 // used to check improvements in refactored version 
 $display_stats = false;
@@ -152,7 +151,11 @@ $db = dbConnect();
 /*
 * to support api like using.
 */
-if(!USING_API){
+global $using_api;
+print_r($using_api);
+if($using_api == true){
+	//do not authenticate
+}else{
 	doAuthenticate();
 }
 
